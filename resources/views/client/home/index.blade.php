@@ -1,49 +1,7 @@
 @extends('client.layouts.main')
 @section('title', 'Home')
 @section('client.content')
-<!--start search-->
-
-<!--end cart-->
-
-<!--<div class="topbar-area">-->
-<!--    <div class="container">-->
-<!--        <div class="row align-items-center">-->
-<!--            <div class="col-lg-4 ">-->
-<!--                <ul class="topbar-social-icons d-flex align-items-center">-->
-<!--                    <li class="follow-text">Follow Us</li>-->
-<!--                    <li><a href="#"><i class="flaticon-facebook-app-symbol"></i></a></li>-->
-<!--                    <li><a href="#"><i class="flaticon-twitter-1"></i></a></li>-->
-<!--                    <li><a href="#"><i class="flaticon-instagram-2"></i></a></li>-->
-<!--                    <li><a href="#"><i class="flaticon-pinterest-1"></i></a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-lg-center">-->
-<!--                <div class="topbar-mobil-contact">-->
-<!--                    <a href="tel:+8801761111456">Hot Line : +880 176 1111 456</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-4 col-md-6 col-sm-6">-->
-<!--                <ul class="topbar-right d-flex align-items-center justify-content-end">-->
-<!--                    <li class="order-track">-->
-<!--                        <a href="#"><i class="flaticon-pin"></i> Track Order</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <select class="languege-select" aria-label="Default select example">-->
-<!--                            <option selected>USD</option>-->
-<!--                            <option value="1">URU</option>-->
-<!--                            <option value="2">CSD</option>-->
-<!--                        </select>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--start header-->
-
-<!--end header area-->
-<!--start banner-->
+    <!--start banner-->
 <div class="hero-area position-relative">
     <div class="swiper-container hero-slider">
         <div class="swiper-wrapper">

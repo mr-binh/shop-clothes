@@ -1,21 +1,21 @@
 @extends('client.layouts.main')
 @section('title','Product Detail')
 @section('client.content')
-{{--    <div class="breadcrumb-area">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="breadcrumb-wrap">--}}
-{{--                        <h3 class="page-title">Shop Details</h3>--}}
-{{--                        <ul class="page-switcher">--}}
-{{--                            <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
-{{--                            <li>Shop Details</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    <div class="breadcrumb-area">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-12">--}}
+    {{--                    <div class="breadcrumb-wrap">--}}
+    {{--                        <h3 class="page-title">Shop Details</h3>--}}
+    {{--                        <ul class="page-switcher">--}}
+    {{--                            <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
+    {{--                            <li>Shop Details</li>--}}
+    {{--                        </ul>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 
     <div class="product-details-area mt-120">
         <div class="container">
@@ -25,34 +25,40 @@
                         <div class="row">
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-8">
                                 <div class="product-switcher-wrap">
+                                    {{--start product image left--}}
                                     <div class="nav product-tab" id="v-pills-tab" role="tablist"
                                          aria-orientation="vertical">
-                                        <div class="product-variation active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                        <div class="product-variation active" id="v-pills-home-tab"
+                                             data-bs-toggle="pill"
                                              data-bs-target="#v-pills-home" role="tab" aria-controls="v-pills-home">
                                             <div class="pd-showcase-img">
                                                 <img src="assets/images/product/pd-sm1.png" alt>
                                             </div>
                                         </div>
                                         <div class="product-variation" id="v-pills-profile-tab" data-bs-toggle="pill"
-                                             data-bs-target="#v-pills-profile" role="tab" aria-controls="v-pills-profile">
+                                             data-bs-target="#v-pills-profile" role="tab"
+                                             aria-controls="v-pills-profile">
                                             <div class="pd-showcase-img">
                                                 <img src="assets/images/product/pd-sm2.png" alt>
                                             </div>
                                         </div>
                                         <div class="product-variation" id="v-pills-messages-tab" data-bs-toggle="pill"
-                                             data-bs-target="#v-pills-messages" role="tab" aria-controls="v-pills-messages">
+                                             data-bs-target="#v-pills-messages" role="tab"
+                                             aria-controls="v-pills-messages">
                                             <div class="pd-showcase-img">
                                                 <img src="assets/images/product/pd-sm3.png" alt>
                                             </div>
                                         </div>
                                         <div class="product-variation" id="v-pills-settings-tab" data-bs-toggle="pill"
-                                             data-bs-target="#v-pills-settings" role="tab" aria-controls="v-pills-settings">
+                                             data-bs-target="#v-pills-settings" role="tab"
+                                             aria-controls="v-pills-settings">
                                             <div class="pd-showcase-img">
                                                 <img src="assets/images/product/pd-sm4.png" alt>
                                             </div>
                                         </div>
                                     </div>
-
+                                    {{--end product image left--}}
+{{--                                    start product image right--}}
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                                              aria-labelledby="v-pills-home-tab">
@@ -79,6 +85,7 @@
                                             </div>
                                         </div>
                                     </div>
+{{--                                    end product image right--}}
                                 </div>
                             </div>
                             <div class="col-xxl-6 col-xl-6 col-lg-6">
@@ -159,16 +166,19 @@
                         <div class="nav flex-column nav-pills discription-bar" id="v-pills-tab2" role="tablist"
                              aria-orientation="vertical">
                             <button class="nav-link active" id="pd-discription3" data-bs-toggle="pill"
-                                    data-bs-target="#pd-discription-pill3" role="tab" aria-controls="pd-discription-pill3">
+                                    data-bs-target="#pd-discription-pill3" role="tab"
+                                    aria-controls="pd-discription-pill3">
                                 Discription
                             </button>
                             <button class="nav-link" id="pd-discription2" data-bs-toggle="pill"
-                                    data-bs-target="#pd-discription-pill2" role="tab" aria-controls="pd-discription-pill2">
+                                    data-bs-target="#pd-discription-pill2" role="tab"
+                                    aria-controls="pd-discription-pill2">
                                 Additional
                                 Information
                             </button>
                             <button class="nav-link" id="pd-discription1" data-bs-toggle="pill"
-                                    data-bs-target="#pd-discription-pill1" role="tab" aria-controls="pd-discription-pill1">
+                                    data-bs-target="#pd-discription-pill1" role="tab"
+                                    aria-controls="pd-discription-pill1">
                                 Our Review (2)
                             </button>
                         </div>

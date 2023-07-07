@@ -1,586 +1,807 @@
 @extends('client.layouts.main')
 @section('title', 'Shop')
 @section('client.content')
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb-wrap">
-                    <h3 class="page-title">Shop</h3>
-                    <ul class="page-switcher">
-                        <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>
-                        <li>Shop</li>
-                    </ul>
+{{--    <div class="breadcrumb-area">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-12">--}}
+{{--                    <div class="breadcrumb-wrap">--}}
+{{--                        <h3 class="page-title">Shop Sidebar</h3>--}}
+{{--                        <ul class="page-switcher">--}}
+{{--                            <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
+{{--                            <li>Shop Sidebar</li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+
+    <div class="product-sidebar-wrapper mt-96">
+        <div class="container">
+            <div class="product-sorting">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="show-text"><span>Showing 1-9 of 18 Result</span></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="category-sort d-flex align-items-center justify-content-end">
+                            <select name="category-sort" id="category-sort">
+                                <option selected>Default Sorting</option>
+                                <option value="1">Sort by Size</option>
+                                <option value="2">Sort by Price</option>
+                                <option value="3">Sort by Color</option>
+                            </select>
+                            <div class="product-searchbar">
+                                <form action="#" method="POST" class="product-searchbar-form">
+                                    <input type="text" name="sidebar-search-input" id="sidebar-search-input"
+                                           placeholder="Search">
+                                    <button type="submit"><i class="bi bi-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            <div class="row">
+                <div class="col-xxl-9 col-lg-8">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-1a.png" alt>
+                                        <img src="assets/images/product/product-1b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
 
-
-<div class="product-grid-wrapper mt-96">
-    <div class="container">
-        <div class="product-sorting">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="show-text"><span>Showing 1-9 of 18 Result</span></div>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">UNIQLO Man Mid Rise</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-8a.png" alt>
+                                        <img src="assets/images/product/product-8b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="sale">Sale</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Man Casul Summer Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-7a.png" alt>
+                                        <img src="assets/images/product/product-7b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="discount">-40%</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-6a.png" alt>
+                                        <img src="assets/images/product/product-6a.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Simple Man Mid Rise</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-5a.png" alt>
+                                        <img src="assets/images/product/product-5b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="sold-out">Sold Out</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Buy khaki polo neck jumper
+                                        </a></h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-4a.png" alt>
+                                        <img src="assets/images/product/product-4b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">kid's Summer Shirt</a></h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-3a.png" alt>
+                                        <img src="assets/images/product/product-3b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Men’s Renta Silk Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-2b.png" alt>
+                                        <img src="assets/images/product/product-2b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="new">New</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-1a.png" alt>
+                                        <img src="assets/images/product/product-1b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="sold-out">Sold Out</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">UNIQLO Man Mid Rise</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-8a.png" alt>
+                                        <img src="assets/images/product/product-8b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="sale">Sale</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Man Casul Summer Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-7a.png" alt>
+                                        <img src="assets/images/product/product-7b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="discount">-40%</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-6a.png" alt>
+                                        <img src="assets/images/product/product-6a.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Simple Man Mid Rise</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-5a.png" alt>
+                                        <img src="assets/images/product/product-5b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                        <span class="sold-out">Sold Out</span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Buy khaki polo neck jumper
+                                        </a></h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-4a.png" alt>
+                                        <img src="assets/images/product/product-4b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">kid's Summer Shirt</a></h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="product-card-l">
+                                <div class="product-img">
+                                    <a href="product-details.html">
+                                        <img src="assets/images/product/product-3a.png" alt>
+                                        <img src="assets/images/product/product-3b.png" alt class="hover-img">
+                                    </a>
+                                    <div class="product-lavels">
+                                    </div>
+                                    <div class="product-actions">
+                                        <a href="#"><i class="flaticon-heart"></i></a>
+                                        <a href="product-details.html"><i class="flaticon-search"></i></a>
+                                        <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <ul class="d-flex product-rating">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                        <li>(<span>8</span> Review)</li>
+                                    </ul>
+                                    <h3 class="product-title"><a href="product-details.html">Men’s Renta Silk Dress</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="custom-pagination d-flex justify-content-center mt-70">
+                                <ul class="d-flex pagination-links">
+                                    <li><a href="#" class="has-arrow"><i class="flaticon-arrow-pointing-to-left"></i></a>
+                                    </li>
+                                    <li><a href="#" class="active-page">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#" class="has-arrow"><i class="flaticon-arrow-pointing-to-right"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="category-sort d-flex align-items-center justify-content-end">
-                        <select name="category-sort" id="category-sort">
-                            <option selected>Default Sorting</option>
-                            <option value="1">Sort by Size</option>
-                            <option value="2">Sort by Price</option>
-                            <option value="3">Sort by Color</option>
-                        </select>
-                        <div class="product-searchbar">
-                            <form action="#" method="POST" class="product-searchbar-form">
-                                <input type="text" name="sidebar-search-input" id="sidebar-search-input"
-                                       placeholder="Search">
-                                <button type="submit"><i class="bi bi-search"></i></button>
+                <div class="col-xxl-3 col-lg-4">
+                    <div class="product-sidebar">
+                        <div class="sidebar-category">
+                            <h5 class="sb-title">SHOP BY CATAGORY</h5>
+                            <div class="sb-category-dropdown">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseOne" aria-expanded="true"
+                                                    aria-controls="collapseOne">
+                                                Woman Collection
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="sb-category-list">
+                                                    <li><a href="#">Man Casual Silk Shirt</a> <span class="product-amount">(10)</span>
+                                                    </li>
+                                                    <li><a href="#">Man Orange Shorts</a> <span
+                                                            class="product-amount">(22)</span></li>
+                                                    <li><a href="#">Party Dress</a> <span class="product-amount">(08)</span>
+                                                    </li>
+                                                    <li><a href="#">T-Shirt</a> <span class="product-amount">(41)</span>
+                                                    </li>
+                                                    <li><a href="#">Ghost Mannequin Black Hoodie</a> <span
+                                                            class="product-amount">(15)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                Kid’s Collection
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                             aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="sb-category-list">
+                                                    <li><a href="#">Man Casual Silk Shirt</a> <span class="product-amount">(10)</span>
+                                                    </li>
+                                                    <li><a href="#">Man Orange Shorts</a> <span
+                                                            class="product-amount">(22)</span></li>
+                                                    <li><a href="#">Party Dress</a> <span class="product-amount">(08)</span>
+                                                    </li>
+                                                    <li><a href="#">T-Shirt</a> <span class="product-amount">(41)</span>
+                                                    </li>
+                                                    <li><a href="#">Ghost Mannequin Black Hoodie</a> <span
+                                                            class="product-amount">(15)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                    aria-expanded="false" aria-controls="collapseThree">
+                                                Man Collection
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse"
+                                             aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="sb-category-list">
+                                                    <li><a href="#">Man Casual Silk Shirt</a> <span class="product-amount">(10)</span>
+                                                    </li>
+                                                    <li><a href="#">Man Orange Shorts</a> <span
+                                                            class="product-amount">(22)</span></li>
+                                                    <li><a href="#">Party Dress</a> <span class="product-amount">(08)</span>
+                                                    </li>
+                                                    <li><a href="#">T-Shirt</a> <span class="product-amount">(41)</span>
+                                                    </li>
+                                                    <li><a href="#">Ghost Mannequin Black Hoodie</a> <span
+                                                            class="product-amount">(15)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                    aria-expanded="false" aria-controls="collapseFour">
+                                                Health & Beauty
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse"
+                                             aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="sb-category-list">
+                                                    <li><a href="#">Man Casual Silk Shirt</a> <span class="product-amount">(10)</span>
+                                                    </li>
+                                                    <li><a href="#">Man Orange Shorts</a> <span
+                                                            class="product-amount">(22)</span></li>
+                                                    <li><a href="#">Party Dress</a> <span class="product-amount">(08)</span>
+                                                    </li>
+                                                    <li><a href="#">T-Shirt</a> <span class="product-amount">(41)</span>
+                                                    </li>
+                                                    <li><a href="#">Ghost Mannequin Black Hoodie</a> <span
+                                                            class="product-amount">(15)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                                    aria-expanded="false" aria-controls="collapseFive">
+                                                Jewellery & Daimond
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFive" class="accordion-collapse collapse"
+                                             aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="sb-category-list">
+                                                    <li><a href="#">Man Casual Silk Shirt</a> <span class="product-amount">(10)</span>
+                                                    </li>
+                                                    <li><a href="#">Man Orange Shorts</a> <span
+                                                            class="product-amount">(22)</span></li>
+                                                    <li><a href="#">Party Dress</a> <span class="product-amount">(08)</span>
+                                                    </li>
+                                                    <li><a href="#">T-Shirt</a> <span class="product-amount">(41)</span>
+                                                    </li>
+                                                    <li><a href="#">Ghost Mannequin Black Hoodie</a> <span
+                                                            class="product-amount">(15)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sb-pricing-range">
+                            <h5 class="sb-title">PRICE</h5>
+                            <form action="#" method="POST">
+                                <div class="price-range-slider">
+                                    <div id="slider-range" class="range-bar"></div>
+                                    <div class="pricing-range-buttom d-flex align-items-center justify-content-between">
+                                        <div class="price-filter-btn">
+                                            <button type="submit">Filter</button>
+                                        </div>
+                                        <div class="pricing-value">
+                                            <span>Price : </span> <input type="text" id="amount" readonly>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-1a.png" alt>
-                            <img src="assets/images/product/product-1b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-
+                        <div class="top-sell-cards">
+                            <h5 class="sb-title">TOP SALE THIS WEEK</h5>
+                            <div class="product-card-m d-flex align-content-center">
+                                <div class="product-img-m">
+                                    <a href="product-details.html"><img src="assets/images/product/pm-1.png" alt></a>
+                                    <div class="product-cart-icon"><a href="#"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-details-m">
+                                    <a class="product-title-m" href="product-details.html">Men Casual
+                                        Summer Sale</a>
+                                    <ul class="d-flex product-rating-m">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                    </ul>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card-m d-flex align-items-center">
+                                <div class="product-img-m">
+                                    <a href="product-details.html"><img src="assets/images/product/pm-2.png" alt></a>
+                                    <div class="product-cart-icon"><a href="#"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-details-m">
+                                    <a class="product-title-m" href="product-details.html">Buy khaki polo neck jumper </a>
+                                    <ul class="d-flex product-rating-m">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                    </ul>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card-m d-flex align-items-center">
+                                <div class="product-img-m">
+                                    <a href="product-details.html"><img src="assets/images/product/pm-3.png" alt></a>
+                                    <div class="product-cart-icon"><a href="#"><i class="flaticon-shopping-cart"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-details-m">
+                                    <a class="product-title-m" href="product-details.html">Men Casual
+                                        Summer Sale</a>
+                                    <ul class="d-flex product-rating-m">
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star-fill"></i></li>
+                                        <li><i class="bi bi-star"></i></li>
+                                    </ul>
+                                    <div class="product-price">
+                                        <del class="old-price">$302.74</del>
+                                        <ins class="new-price">$290.05</ins>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">UNIQLO Man Mid Rise</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-8a.png" alt>
-                            <img src="assets/images/product/product-8b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="sale">Sale</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Man Casul Summer Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-7a.png" alt>
-                            <img src="assets/images/product/product-7b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="discount">-40%</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
+                        <div class="sb-tags">
+                            <h5 class="sb-title">PRODUCT TAG</h5>
+                            <ul class="sb-tag-list">
+                                <li><a href="#">Casual</a></li>
+                                <li><a href="#">Kurtas & Kurtis</a></li>
+                                <li><a href="#">Summer</a></li>
+                                <li><a href="#">Spring</a></li>
+                                <li><a href="#">Winter</a></li>
+                                <li><a href="#">Baby</a></li>
+                                <li><a href="#">Man</a></li>
+                                <li><a href="#">Coot</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-6a.png" alt>
-                            <img src="assets/images/product/product-6a.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Simple Man Mid Rise</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-5a.png" alt>
-                            <img src="assets/images/product/product-5b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="sold-out">Sold Out</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Buy khaki polo neck jumper </a>
-                        </h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-4a.png" alt>
-                            <img src="assets/images/product/product-4b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">kid's Summer Shirt</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-3a.png" alt>
-                            <img src="assets/images/product/product-3b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Men’s Renta Silk Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-2b.png" alt>
-                            <img src="assets/images/product/product-2b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="new">New</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-1a.png" alt>
-                            <img src="assets/images/product/product-1b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="sold-out">Sold Out</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">UNIQLO Man Mid Rise</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-8a.png" alt>
-                            <img src="assets/images/product/product-8b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="sale">Sale</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Man Casul Summer Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-7a.png" alt>
-                            <img src="assets/images/product/product-7b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="discount">-40%</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-6a.png" alt>
-                            <img src="assets/images/product/product-6a.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Simple Man Mid Rise</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-5a.png" alt>
-                            <img src="assets/images/product/product-5b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="sold-out">Sold Out</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Buy khaki polo neck jumper </a>
-                        </h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-4a.png" alt>
-                            <img src="assets/images/product/product-4b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">kid's Summer Shirt</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-3a.png" alt>
-                            <img src="assets/images/product/product-3b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Men’s Renta Silk Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                <div class="product-card-l">
-                    <div class="product-img">
-                        <a href="product-details.html">
-                            <img src="assets/images/product/product-2b.png" alt>
-                            <img src="assets/images/product/product-2b.png" alt class="hover-img">
-                        </a>
-                        <div class="product-lavels">
-                            <span class="new">New</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#"><i class="flaticon-heart"></i></a>
-                            <a href="product-details.html"><i class="flaticon-search"></i></a>
-                            <a href="cart.html"><i class="flaticon-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-body">
-                        <ul class="d-flex product-rating">
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star-fill"></i></li>
-                            <li><i class="bi bi-star"></i></li>
-                            <li>(<span>8</span> Review)</li>
-                        </ul>
-                        <h3 class="product-title"><a href="product-details.html">Women Renta Silk Dress</a></h3>
-                        <div class="product-price">
-                            <del class="old-price">$302.74</del>
-                            <ins class="new-price">$290.05</ins>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="custom-pagination d-flex justify-content-center mt-70">
-                    <ul class="d-flex pagination-links">
-                        <li><a href="#" class="has-arrow"><i class="flaticon-arrow-pointing-to-left"></i></a></li>
-                        <li><a href="#" class="active-page">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#" class="has-arrow"><i class="flaticon-arrow-pointing-to-right"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

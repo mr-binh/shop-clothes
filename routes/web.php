@@ -8,7 +8,7 @@ use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\CartController;
-
+use App\Http\Controllers\client\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +23,14 @@ use App\Http\Controllers\client\CartController;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::get('/login', [AuthController::class, 'login'])->name('client.auth.login');
+Route::get('/register', [AuthController::class, 'register'])->name('client.auth.register');
+
 Route::get('/', [HomeController::class, 'index'])->name('client.home.index');
 Route::get('/product', [ProductController::class, 'index'])->name('client.product.index');
 Route::get('/product/detail', [ProductController::class, 'detail'])->name('client.product.detail');
+Route::get('/product/test', [ProductController::class, 'test'])->name('client.product.test');
+
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('client.dashboard.index');
     Route::get('/profile', [DashboardController::class, 'profile'])->name('client.dashboard.profile');

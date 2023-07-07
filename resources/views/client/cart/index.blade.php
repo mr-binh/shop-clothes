@@ -1,21 +1,21 @@
 @extends('client.layouts.main')
 @section('title', 'Cart')
 @section('content')
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb-wrap">
-                    <h3 class="page-title">Cart</h3>
-                    <ul class="page-switcher">
-                        <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>
-                        <li>Cart</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="breadcrumb-area">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12">--}}
+{{--                <div class="breadcrumb-wrap">--}}
+{{--                    <h3 class="page-title">Cart</h3>--}}
+{{--                    <ul class="page-switcher">--}}
+{{--                        <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
+{{--                        <li>Cart</li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 {{--start cart--}}
 <div class="cart-area mt-120">
     <div class="container">

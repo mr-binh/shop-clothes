@@ -1,18 +1,18 @@
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb-wrap">
-                    <h3 class="page-title">My Account</h3>
-                    <ul class="page-switcher">
-                        <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>
-                        <li>My Account</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="breadcrumb-area">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-12">--}}
+{{--                <div class="breadcrumb-wrap">--}}
+{{--                    <h3 class="page-title">My Account</h3>--}}
+{{--                    <ul class="page-switcher">--}}
+{{--                        <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
+{{--                        <li>My Account</li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <div class="dashbord-wrapper mt-120">
     <div class="container">
         <div class="row justify-content-center">

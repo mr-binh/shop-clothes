@@ -1,21 +1,21 @@
 @extends('client.layouts.main')
 @section('title','Checkout')
 @section('client.content')
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb-wrap">
-                        <h3 class="page-title">Checkout</h3>
-                        <ul class="page-switcher">
-                            <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>
-                            <li>Checkout</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="breadcrumb-area">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-12">--}}
+{{--                    <div class="breadcrumb-wrap">--}}
+{{--                        <h3 class="page-title">Checkout</h3>--}}
+{{--                        <ul class="page-switcher">--}}
+{{--                            <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
+{{--                            <li>Checkout</li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="checkout-area mt-90">
         <div class="container">
             <div class="row">
@@ -25,18 +25,18 @@
                             Billing Details
                         </h5>
                         <div class="row">
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-12">
                                 <div class="eg-input-group">
-                                    <label for="first-name1">First Name</label>
-                                    <input type="text" id="first-name1" placeholder="Your first name">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" placeholder="Your full name">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="eg-input-group">
-                                    <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name" placeholder="Your last name">
-                                </div>
-                            </div>
+{{--                            <div class="col-lg-6 col-md-6">--}}
+{{--                                <div class="eg-input-group">--}}
+{{--                                    <label for="last-name">Last Name</label>--}}
+{{--                                    <input type="text" id="last-name" placeholder="Your last name">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div class="col-lg-12">
                                 <div class="eg-input-group">
                                     <label for="country">Country / Region</label>
@@ -75,31 +75,31 @@
                             </div>
                         </div>
                     </form>
-                    <form class="different-address-form">
-                        <h5 class="checkout-title">
-                            Ship to a Different Address?
-                        </h5>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="eg-input-group">
-                                    <label for="first-name-d">First Name</label>
-                                    <input type="text" id="first-name-d" placeholder="Your first name">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="eg-input-group">
-                                    <label for="last-name-d">Last Name</label>
-                                    <input type="text" id="last-name-d" placeholder="Your last name">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="eg-input-group mb-0">
-                                    <label for="last-name-d">Last Name</label>
-                                    <textarea cols="30" rows="6" placeholder="Order Notes (Optional)"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+{{--                    <form class="different-address-form">--}}
+{{--                        <h5 class="checkout-title">--}}
+{{--                            Ship to a Different Address?--}}
+{{--                        </h5>--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="eg-input-group">--}}
+{{--                                    <label for="first-name-d">First Name</label>--}}
+{{--                                    <input type="text" id="first-name-d" placeholder="Your first name">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="eg-input-group">--}}
+{{--                                    <label for="last-name-d">Last Name</label>--}}
+{{--                                    <input type="text" id="last-name-d" placeholder="Your last name">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-lg-12">--}}
+{{--                                <div class="eg-input-group mb-0">--}}
+{{--                                    <label for="last-name-d">Last Name</label>--}}
+{{--                                    <textarea cols="30" rows="6" placeholder="Order Notes (Optional)"></textarea>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
                 </div>
                 <div class="col-lg-5">
                     <div class="order-summary">
@@ -170,15 +170,6 @@
                         </div>
                         <form class="payment-form">
                             <div class="payment-methods">
-                                <div class="form-check payment-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                           id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        Check payments
-                                    </label>
-                                    <p>Please send a check to Store Name, Store Street, Store Town, Store State /
-                                        County, Store Postcode.</p>
-                                </div>
                                 <div class="form-check payment-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
                                            id="flexRadioDefault2" checked>
