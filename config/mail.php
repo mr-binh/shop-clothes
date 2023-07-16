@@ -41,6 +41,8 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
+//            'username' => 'binhvt12003@gmail.com',
+//            'password' => 'djaiumgihoaicgvq',
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],

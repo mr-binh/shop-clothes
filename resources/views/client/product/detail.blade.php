@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                     {{--end product image left--}}
-{{--                                    start product image right--}}
+                                    {{--                                    start product image right--}}
                                     <div class="tab-content" id="v-pills-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                                              aria-labelledby="v-pills-home-tab">
@@ -85,7 +85,7 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    end product image right--}}
+                                    {{--                                    end product image right--}}
                                 </div>
                             </div>
                             <div class="col-xxl-6 col-xl-6 col-lg-6">
@@ -99,58 +99,47 @@
                                             <li><i class="bi bi-star"></i></li>
                                             <li class="count-review">(<span>23</span> Review)</li>
                                         </ul>
-                                        <h3 class="pd-title">Ghost Mannequin Winter Dress</h3>
-                                        <h5 class="pd-price">$41.36</h5>
-                                        <p class="pd-small-info"><strong>RIBCAGE STR ANK RAINBOW -</strong> B lue
-                                            High-rise
-                                            straight-leg jeans Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <h3 class="pd-title">{{$product->name}}</h3>
+                                        <h5 class="pd-price">{{$product->price}} đ</h5>
+                                        <p class="pd-small-info">{{$product->description}}</p>
                                     </div>
                                     <div class="pd-quick-discription">
                                         <ul>
                                             <li class="d-flex align-items-center">
                                                 <span>Color :</span>
                                                 <div class="color-option d-flex align-items-center">
-                                                    <input type="radio" name="color" id="color1" value="red" checked>
-                                                    <label for="color1"><span class="c1 p-color"></span></label>
-                                                    <input type="radio" name="color" id="color2" value="red">
-                                                    <label for="color2"><span class="c2 p-color"></span></label>
-                                                    <input type="radio" name="color" id="color4" value="red">
-                                                    <label for="color4"><span class="c4 p-color"></span></label>
+                                                    @foreach($color as $co => $value)
+
+                                                        <input type="radio" class="color" name="color"
+                                                               id="color-{{$value->color}}"
+                                                               value="{{$value->color}}"
+                                                               data-product="{{$value->product_id}}" {{$co==0?'checked':''}}>
+                                                        <label for="color-{{$value->color}}"><span class="p-color"
+                                                                                                   style="background-color: {{$value->color}}"></span></label>
+                                                    @endforeach
+                                                    {{--                                                    <input type="radio" name="color" id="color2" value="red">--}}
+                                                    {{--                                                    <label for="color2"><span class="p-color" style="background-color: Darkorange"></span></label>--}}
+                                                    {{--                                                    <input type="radio" name="color" id="color4" value="red">--}}
+                                                    {{--                                                    <label for="color4"><span class="c4 p-color"></span></label>--}}
                                                 </div>
                                             </li>
                                             <li class="d-flex align-items-center">
                                                 <span>Size :</span>
                                                 <div class="size-option d-flex align-items-center">
-                                                    <input type="radio" name="size" id="size1" value="red" checked>
-                                                    <label for="size1">
-                                                        <span class="p-size">M</span>
-                                                    </label>
-                                                    <input type="radio" name="size" id="size2" value="red">
-                                                    <label for="size2">
-                                                        <span class="p-size">L</span>
-                                                    </label>
-                                                    <input type="radio" name="size" id="size3" value="red">
-                                                    <label for="size3">
-                                                        <span class="p-size">XL</span>
-                                                    </label>
-                                                    <input type="radio" name="size" id="size4" value="red">
-                                                    <label for="size4">
-                                                        <span class="p-size">XXL</span>
-                                                    </label>
+                                                    {{--                                                        load size--}}
                                                 </div>
                                             </li>
                                             <li class="d-flex align-items-center pd-cart-btns">
                                                 <div class="quantity">
-                                                    <input type="number" min="1" max="90" step="10" value="1">
+                                                    <input type="number" name="quantity" min="0" max="90" step="10"
+                                                           value="1">
                                                 </div>
-                                                <button type="submit" class="pd-add-cart">Add to cart</button>
+                                                <button type="button" class="pd-add-cart">Add to cart</button>
                                             </li>
-                                            <li class="pd-type">Product Type: <span>Woman Winter Dress</span></li>
-                                            <li class="pd-type">Catagories: <span> Clothing, Hoodies</span></li>
-                                            <li class="pd-type">Availabile: <span>89</span></li>
-                                            <li class="pd-type">Material : <span>100% Cotton, Jens</span></li>
+                                            {{--                                            <li class="pd-type">Product Type: <span>Woman Winter Dress</span></li>--}}
+                                            {{--                                            <li class="pd-type">Catagories: <span> Clothing, Hoodies</span></li>--}}
+                                            {{--                                            <li class="pd-type">Availabile: <span>89</span></li>--}}
+                                            {{--                                            <li class="pd-type">Material : <span>100% Cotton, Jens</span></li>--}}
                                         </ul>
                                     </div>
                                 </div>
@@ -472,4 +461,89 @@ Jan 2021</span></h5>
             </div>
         </div>
     </div>
+@endsection
+@section('client.page-script')
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"--}}
+{{--            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="--}}
+{{--            crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
+    <script>
+        $(document).ready(function () {
+            let product_id = $(".color").attr("data-product");
+            let color = $("input[name='color']:checked").val();
+
+            function getSizes(color, product_id) {
+                $.ajax({
+                    url: "/api/product/get-size/" + color + "/" + product_id,
+                    type: "GET",
+                    success: function (data) {
+                        $(".size-option").html("");
+                        data.map((item) => {
+                            $(".size-option").append(
+                                `
+                                <input type="radio" name="size" id="size-${item.size}"
+                                                               value="${item.size}" data-id="${item.id}"  checked>
+                                                        <label for="size-${item.size}">
+                                                            <span class="p-size">${item.size}</span>
+                                                        </label>
+                                `
+                            );
+                        });
+                    },
+                });
+            }
+
+            getSizes(color, product_id)
+            $(".color").click(function () {
+                let color = $("input[name='color']:checked").val();
+                getSizes(color, product_id)
+            });
+            $(".pd-add-cart").click(function () {
+                let product_variant_id = $("input[name='size']:checked").attr("data-id");
+                let quantity = $("input[name='quantity']").val();
+                let data = {
+                    _token: "{{ csrf_token() }}",
+                    product_variant_id: product_variant_id,
+                    quantity: Number(quantity),
+                };
+                $.ajax({
+                    url: "/cart/add",
+                    type: "POST",
+                    dataType: "json",
+                    data: data,
+                    success: function (data) {
+                        $(".has-count").text(data.count);
+                        let total=0;
+                        let cart=data.cart;
+                        $(".cart-product-grid").html("");
+                        // console.log(cart);
+                        $.each(cart, function(id, product) {
+                            console.log(id,product);
+                        // });
+                        {{--for(let {id,product} in cart){--}}
+                        {{--    console.log(product);--}}
+                            total += product['price'] * product['quantity']
+                            $(".cart-product-grid").append(`
+                            <li class="single-cart-product cart-${id}" data-id="${id}}">
+                            <div class="cart-product-info d-flex align-items-center">
+                                <div class="product-img"><img src="{{asset($product['image'])}}" alt
+                                                              class="img-fluid">
+                                </div>
+                                <div class="product-info">
+                                    <a href=""><h5 class="product-title">${product['name']}</h5><p> Color: ${product['color']} | Size: ${product['size']}</p></a>
+                                    <p class="product-price"><span>${product['quantity']}</span>x <span class="p-price">${product['price']} đ</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="cart-product-delete-btn">
+                                <i class="flaticon-letter-x cart-remove-header"></i>
+                            </div>
+                        </li>
+                            `);
+                        });
+                        $(".total-cart-index").text(total.toLocaleString('it-IT', {style : 'currency', currency : 'VND'}));
+                    },
+                });
+            });
+        });
+    </script>
 @endsection

@@ -14,18 +14,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-            for($i=0;$i<10;$i++){
-                $product[]=[
-                    'name' => 'product'.$i,
-                    'slug' => 'product'.$i,
-                    'description' => 'san pham thu '.$i,
-                    'image' => 'image'.$i.'.jpg',
-                    'price' => $i,
-                    'status' => 0,
-                    'hot' => 1,
-                    'sold' => 0,
-                ];
-            }
-        DB::table('product')->insert([$product]);
+         \App\Models\Product::factory(10)->create();
     }
 }
