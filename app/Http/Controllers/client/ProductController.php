@@ -10,8 +10,13 @@ use DB;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->q;
+        if ($keyword) {
+            $products = Product::query()->where('name', 'like', "%{$keyword}%")->with('product_variants')->paginate(9);
+            return view('client.product.index', compact('products'));
+        }
         $products = Product::query()->with('product_variants')->paginate(9);
         return view('client.product.index', compact('products'));
 //        return view('client.product.index');
@@ -20,20 +25,21 @@ class ProductController extends Controller
     public function detail($slug)
     {
         $product = Product::query()->where('slug', $slug)->first();
-        $color = ProductVariants::query()->where('product_id', $product->id)->select('color','product_id')->distinct()->get();
+        $color = ProductVariants::query()->where('product_id', $product->id)->select('color', 'product_id')->distinct()->get();
 //        $size = ProductVariants::query()->where('product_id', $product->id)->select('size')->distinct()->get();
         return view('client.product.detail', compact('product', 'color'));
     }
+
     public function getSize($color, $product_id)
     {
-        $size = ProductVariants::query()->where('product_id', $product_id)->where('color', $color)->select('size','id')->distinct()->get();
+        $size = ProductVariants::query()->where('product_id', $product_id)->where('color', $color)->select('size', 'id')->distinct()->get();
         return response()->json($size);
     }
 
-
-//    public function test()
-//    {
-//        $product = Product::query()->where('id', 10)->with('product_variants')->get();
-//        return $product;
-//    }
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+        $products = Product::query()->where('name', 'like', "%{$keyword}%")->with('product_variants')->paginate(9);
+        return view('client.product.index', compact('products'));
+    }
 }

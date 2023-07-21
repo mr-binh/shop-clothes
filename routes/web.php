@@ -9,6 +9,7 @@ use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\AuthController;
+use App\Http\Controllers\client\CouponController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,10 +28,15 @@ Route::get('/login', [AuthController::class, 'login'])->name('client.auth.login'
 Route::get('/register', [AuthController::class, 'register'])->name('client.auth.register');
 
 Route::get('/', [HomeController::class, 'index'])->name('client.home.index');
-Route::get('/product', [ProductController::class, 'index'])->name('client.product.index');
-Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('client.product.detail');
-Route::get('/product/test', [ProductController::class, 'test'])->name('client.product.test');
-
+Route::prefix('/product')->group(function (){
+    Route::get('/', [ProductController::class, 'index'])->name('client.product.index');
+    Route::get('/{slug}', [ProductController::class, 'detail'])->name('client.product.detail');
+    Route::post('/search', [ProductController::class, 'search'])->name('client.product.search');
+//    Route::get('/get-size/{color}/{product_id}', [ProductController::class, 'getSize'])->name('client.product.get-size');
+});
+//Route::get('/product', [ProductController::class, 'index'])->name('client.product.index');
+//Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('client.product.detail');
+//Route::get('/product/test', [ProductController::class, 'test'])->name('client.product.test');
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('client.dashboard.index');
@@ -44,7 +50,7 @@ Route::prefix('/checkout')->group(function (){
     Route::post('/store', [CheckoutController::class, 'store'])->name('client.checkout.store');
     Route::post('/vnpay', [CheckoutController::class, 'vnpay'])->name('client.checkout.vnpay');
     Route::get('/order-confirmation', [CheckoutController::class, 'comfirmPayment'])->name('client.checkout.order-confirmation');
-    Route::get('/test-mail', [CheckoutController::class, 'testMail'])->name('client.checkout.test-mail');
+    Route::post('/check-coupon', [CouponController::class, 'check'])->name('client.coupon.check');
 });
 Route::prefix('cart')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
@@ -52,4 +58,6 @@ Route::prefix('cart')->group(function () {
     Route::patch('/update', [CartController::class, 'update'])->name('client.cart.update');
     Route::delete('/remove', [CartController::class, 'remove'])->name('client.cart.remove');
 });
+
+Route::get('/test',[DashboardController::class,'orderDetail']);
 

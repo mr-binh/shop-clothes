@@ -69,15 +69,15 @@
                 </div>
             </div>
             <div class="row mt-60">
-                <div class="col-xxl-4 col-lg-4">
-                    <div class="cart-coupon-input">
-                        <h5 class="coupon-title">Coupon Code</h5>
-                        <form class="coupon-input d-flex align-items-center">
-                            <input type="text" placeholder="Coupon Code">
-                            <button type="submit">Apply Code</button>
-                        </form>
-                    </div>
-                </div>
+{{--                <div class="col-xxl-4 col-lg-4">--}}
+{{--                    <div class="cart-coupon-input">--}}
+{{--                        <h5 class="coupon-title">Coupon Code</h5>--}}
+{{--                        <form class="coupon-input d-flex align-items-center">--}}
+{{--                            <input type="text" placeholder="Coupon Code">--}}
+{{--                            <button type="submit">Apply Code</button>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="col-xxl-8 col-lg-8">
                     <table class="table total-table">
                         <tbody>
@@ -102,9 +102,9 @@
                             <td class="tt-right cost-info-td">
                                 <ul class="cart-cost">
                                     <li>Free</li>
-                                    <li>$15</li>
-                                    <li>$15</li>
-                                    <li>$5</li>
+                                    <li>Free</li>
+                                    <li>Free</li>
+                                    <li>Free</li>
                                     <li></li>
                                 </ul>
                             </td>
@@ -149,6 +149,35 @@
                         $(".has-count").text(response.count);
                         $(".cart-" + id).find(".total-col").text(subtotal.toLocaleString()+" đ");
                         $(".total").text(response.total.toLocaleString()+" đ");
+                        let total=0;
+                        let cart=response.cart;
+                        if (cart.length > 0){
+                            $(".cart-product-grid").html("");
+                            $.each(cart, function (id, product) {
+                                total += product['price'] * product['quantity']
+                                $(".cart-product-grid").append(`
+                            <li class="single-cart-product cart-${id}" data-id="${id}}">
+                            <div class="cart-product-info d-flex align-items-center">
+                                <div class="product-img"><img src="${product['image']}" alt
+                                                              class="img-fluid">
+                                </div>
+                                <div class="product-info">
+                                    <a href=""><h5 class="product-title">${product['name']}</h5><p> Color: ${product['color']} | Size: ${product['size']}</p></a>
+                                    <p class="product-price"><span>${product['quantity']}</span>x <span class="p-price">${product['price']} đ</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="cart-product-delete-btn">
+                                <i class="flaticon-letter-x cart-remove-header"></i>
+                            </div>
+                        </li>
+                            `);
+                            });
+                            $(".total-cart-index").text(total.toLocaleString('vn-VN', {
+                                style: 'currency',
+                                currency: 'VND'
+                            }));
+                        }
                     }
                 });
             });

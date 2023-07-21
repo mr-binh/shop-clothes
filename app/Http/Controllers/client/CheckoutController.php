@@ -7,12 +7,30 @@ use App\Http\Requests\OrderRequest;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
+use App\Models\ProductVariants;
+use App\Models\User;
+use App\Models\Coupon;
 use Mail;
 use App\Mail\OrderConfirmation;
 use DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
+
 class CheckoutController extends Controller
 {
+    public function __construct(
+        private Order           $order,
+        private OrderDetail     $order_detail,
+        private Product         $product,
+        private ProductVariants $product_variants,
+        private User            $user,
+        private Coupon          $coupon,
+    )
+    {
+    }
+
     public function index()
     {
         return view('client.checkout.index');
@@ -29,6 +47,7 @@ class CheckoutController extends Controller
         $commune = $request->commune;
         $street = $request->street;
         $address = $street . ', ' . $commune . ', ' . $district . ', ' . $province;
+        $discount = Session::get('coupon')['discount'] ?? 0;
         $cart = session()->get('cart');
         $total = 0;
         foreach ($cart as $item) {
@@ -39,15 +58,16 @@ class CheckoutController extends Controller
             $order = new Order();
             $order->user_id = 1;
 //        $order->user_id = auth()->user()->id;
-            $order->order_code = "DH".rand(0,9) . time();
+            $order->order_code = "DH" . rand(0, 9) . time();
             $order->name = $name;
             $order->phone = $phone;
             $order->email = $email;
             $order->note = $note;
+            $order->discount = $discount;
             $order->total = $total;
-            $order->status = "Đang xử lý";
+            $order->status = "Chưa thanh toán";
             $order->payment_method = "vnpay";
-            $order->payment_status = "Chưa thanh toán";
+            $order->payment_status = 1;
             $order->shipping_address = $address;
             $order->save();
             foreach ($cart as $item) {
@@ -59,43 +79,17 @@ class CheckoutController extends Controller
                 $order_detail->save();
             }
             DB::commit();
-            $urlCheckout = $this->vnpay();
+            $total = $total - $discount;
+            $urlCheckout = $this->vnpay($total, $order->order_code);
+//            dd($urlCheckout);
             return response()->json(['status' => 'success', 'urlCheckout' => $urlCheckout]);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['status' => 'error', 'errors' => $e->getMessage()]);
         }
-//        DB::beginTransaction();
-//        try {
-//            $order=Order::created([
-//                'user_id' => 1,
-//                'name' => $name,
-//                'phone' => $phone,
-//                'email' => $email,
-//                'note' => $note,
-//                'total' => $total,
-//                'status' => "Đang xử lý",
-//                'payment_method' => "vnpay",
-//                'payment_status' => "Chưa thanh toán",
-//                'shipping_address' => $address,
-//            ]);
-//            foreach ($cart as $item) {
-//                OrderDetail::created([
-//                    'order_id' => $order->id,
-//                    'product_variant_id' => $item['id'],
-//                    'quantity' => $item['quantity'],
-//                    'price' => $item['price'],
-//                ]);
-//            }
-//            DB::commit();
-//        } catch (\Exception $e) {
-//            DB::rollBack();
-//            return response()->json(['status' => 'error', 'errors' => $e->getMessage()]);
-//        }
-//        return response()->json(['status' => 'success']);
     }
 
-    function vnpay()
+    function vnpay($total, $order_code)
     {
         error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -110,22 +104,20 @@ class CheckoutController extends Controller
          * To change this template file, choose Tools | Templates
          * and open the template in the editor.
          */
-        $cart = session()->get('cart');
-        $total = 0;
-        foreach ($cart as $item) {
-            $total += $item['price'] * $item['quantity'];
-        }
-        $order_code = Order::latest()->first()->order_code;
         $vnp_TmnCode = env('VNP_TMNCODE'); //Website ID in VNPAY System
         $vnp_HashSecret = env("VNP_HASHSECRET"); //Secret key
         $vnp_Url = env("VNP_URL");
-        $vnp_Returnurl = env("VNP_RETURNURL");
-//        $vnp_apiUrl = " https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+        $vnp_Returnurl = route('client.checkout.order-confirmation');
+//        $vnp_TmnCode = "DL0EA7AJ"; //Website ID in VNPAY System
+//        $vnp_HashSecret = "GOGAQDDKQGSHOENQIKCHZBMXCIZBQVXJ"; //Secret key
+//        $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+//        $vnp_Returnurl="http://127.0.0.1:8000/checkout/order-confirmation";
+        $vnp_apiUrl = " https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 //Config input format
 //Expire
         $startTime = date("YmdHis");
         $expire = date('YmdHis', strtotime('+15 minutes', strtotime($startTime)));
-        $vnp_TxnRef = $order_code; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_TxnRef = $order_code; //Mã đơn hàng
         $vnp_OrderInfo = "Thanh toan don hang";
         $vnp_OrderType = "billpayment";
         $vnp_Amount = $total * 100;
@@ -181,21 +173,61 @@ class CheckoutController extends Controller
         $status = $request->vnp_ResponseCode;
         $orderCode = $request->vnp_TxnRef;
         $bankTranNo = $request->vnp_BankTranNo;
-        if ($status == "00") {
-            Order::where('order_code',$orderCode)->update(['payment_status' => 'Đã thanh toán']);
-            $cart = session()->get('cart');
-            $order = Order::where('order_code',$orderCode)->first();
-            $name = $order->name;
-            $address = $order->shipping_address;
-            $phone = $order->phone;
-            $email = $order->email;
-            $date= Carbon::now()->format('d-m-Y');
-            Mail::to($email)->send(new OrderConfirmation($cart, $name, $phone, $email, $address, $orderCode,$date));
-            session()->forget('cart');
-            return view('client.checkout.orderConfirmation', compact('cart', 'name', 'phone', 'email', 'address'));
+        if (!Session::has('page_loaded')) {
+            Session::put('page_loaded', true);
+            if ($status == "00") {
+//                DB::beginTransaction();
+//                try {
+                    $this->order::where('order_code', $orderCode)->update([
+                        'status' => 'Người bán đã xác nhận đơn hàng',
+                        'payment_status' => 0,
+                    ]);
+
+                    $cart = session()->get('cart');
+                    $order = $this->order::where('order_code', $orderCode)->with('order_detail')->first();
+                    $name = $order->name;
+                    $address = $order->shipping_address;
+                    $phone = $order->phone;
+                    $email = $order->email;
+                    $discount = $order->discount;
+                    $order_detail = json_decode($order->order_detail, true);
+                    foreach ($order_detail as $item) {
+                        $product_variant_id = $item['product_variant_id'];
+                        $quantity = $item['quantity'];
+                        $product_variant = $this->product_variants::where('id', $product_variant_id)->first();
+                        $product_variant->quantity = $product_variant->quantity - $quantity;
+                        $product_variant->save();
+                        $product_id = $product_variant->product_id;
+                        $product = $this->product::where('id', $product_id)->first();
+                        $product->sold = $product->sold + $quantity;
+                        $product->save();
+                    }
+                    if (Session::has('coupon')) {
+                        $coupon = $this->coupon::where('code', Session::get('coupon')['code'])->first();
+                        if ($coupon) {
+                            $coupon->used = $coupon->used + 1;
+                            $coupon->save();
+                        }
+                        Session::forget('coupon');
+                    }
+                    //send mail
+                    $date = Carbon::now()->format('d-m-Y');
+                    Mail::to($email)->send(new OrderConfirmation($cart, $name, $phone, $email,$address,$discount,$orderCode,$date));
+                    Session::forget('cart');
+                    return view('client.checkout.orderConfirmation', compact('cart', 'name', 'phone', 'email', 'address','discount', 'orderCode', 'date'));
+//                    DB::commit();
+//                } catch (\Exception $exception) {
+//                    DB::rollBack();
+//                    Log::error('Message: ' . $exception->getMessage() . '---Line: ' . $exception->getLine());
+//                }
+            } else {
+                $message = "Payment error";
+                dd($message);
+            }
         } else {
-            $message = "Payment error";
+            // Chuyển hướng về trang home
+//            Session::forget('page_loaded');
+            return redirect()->route('client.home.index');
         }
     }
-
 }

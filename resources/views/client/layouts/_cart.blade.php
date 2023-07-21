@@ -53,7 +53,7 @@
         $(".cart-remove-header").click(function (e) {
             e.preventDefault();
             let id = $(this).parents(".single-cart-product").attr("data-id");
-            if (confirm("Do you really want to remove?")) {
+            // if (confirm("Do you really want to remove?")) {
                 $.ajax({
                     url: '{{ route('client.cart.remove') }}',
                     method: "DELETE",
@@ -67,7 +67,7 @@
                         $(".total-cart-index").text(response.total.toLocaleString()+" đ");
                     }
                 });
-            }
+            // }
         });
 
     })

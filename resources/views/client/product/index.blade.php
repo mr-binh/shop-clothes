@@ -22,7 +22,7 @@
             <div class="product-sorting">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="show-text"><span>Showing 1-9 of 18 Result</span></div>
+{{--                        <div class="show-text"><span>Showing 1-9 of 18 Result</span></div>--}}
                     </div>
                     <div class="col-lg-6">
                         <div class="category-sort d-flex align-items-center justify-content-end">
@@ -33,8 +33,8 @@
                                 <option value="3">Sort by Color</option>
                             </select>
                             <div class="product-searchbar">
-                                <form action="#" method="POST" class="product-searchbar-form">
-                                    <input type="text" name="sidebar-search-input" id="sidebar-search-input"
+                                <form action="{{route('client.product.index')}}" method="get" class="product-searchbar-form">
+                                    <input type="text" name="q" id="sidebar-search-input"
                                            placeholder="Search">
                                     <button type="submit"><i class="bi bi-search"></i></button>
                                 </form>

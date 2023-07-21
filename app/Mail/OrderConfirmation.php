@@ -26,7 +26,8 @@ class OrderConfirmation extends Mailable
     public $order_code;
     public $address;
     public $date;
-    public function __construct($cart,$name,$phone,$email,$address,$order_code,$date)
+    public $discount;
+    public function __construct($cart,$name,$phone,$email,$address,$discount,$order_code,$date)
     {
         $this->cart = $cart;
         $this->name = $name;
@@ -35,6 +36,7 @@ class OrderConfirmation extends Mailable
         $this->order_code = $order_code;
         $this->address = $address;
         $this->date = $date;
+        $this->discount = $discount;
     }
 
     /**
@@ -67,6 +69,7 @@ class OrderConfirmation extends Mailable
                 'phone' => $this->phone,
                 'email' => $this->email,
                 'address' => $this->address,
+                'discount' => $this->discount,
                 'order_code'=>$this->order_code,
                 'date'=>$this->date,
             ]

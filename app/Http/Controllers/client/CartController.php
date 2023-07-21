@@ -63,7 +63,7 @@ class CartController extends Controller
                 $total += $item['price'] * $item['quantity'];
             }
             session()->flash('success', 'Cart successfully updated!');
-            return response()->json(['success' => 'Cart successfully updated!', 'total' => $total]);
+            return response()->json(['success' => 'Cart successfully updated!','cart' => session()->get('cart'), 'total' => $total]);
         }
     }
 
@@ -81,7 +81,7 @@ class CartController extends Controller
             }
             $count = count($cart);
             session()->flash('success', 'Product successfully removed!');
-            return response()->json(['success' => 'Cart successfully updated!', 'total' => $total, 'count' => $count]);
+            return response()->json(['success' => 'Cart successfully updated!','cart' => session()->get('cart'), 'total' => $total, 'count' => $count]);
         }
     }
 }

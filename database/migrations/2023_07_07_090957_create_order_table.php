@@ -21,10 +21,11 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->text('note');
+            $table->integer('discount');
             $table->integer('total');
             $table->string('status');
             $table->string('payment_method');
-            $table->string('payment_status');
+            $table->boolean('payment_status');
             $table->string('shipping_address');
             $table->timestamps();
         });

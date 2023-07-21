@@ -1389,8 +1389,8 @@
             -webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;">
                 <div class="cs-invoice_left">
                     <p class="cs-invoice_number cs-primary_color cs-mb5 cs-f16"><b class="cs-primary_color">Invoice
-                            No:</b> #SM75692</p>
-                    <p class="cs-invoice_date cs-primary_color cs-m0"><b class="cs-primary_color">Date: </b>05.01.2022
+                            No:</b> {{$orderCode}}</p>
+                    <p class="cs-invoice_date cs-primary_color cs-m0"><b class="cs-primary_color">Date: </b>{{$date}}
                     </p>
                 </div>
                 <div class="cs-invoice_right cs-text_right">
@@ -1466,12 +1466,12 @@
                                         {{number_format($total)}} đ
                                     </td>
                                 </tr>
-{{--                                <tr class="cs-border_left">--}}
-{{--                                    <td class="cs-width_3 cs-semi_bold cs-primary_color cs-focus_bg">Tax</td>--}}
-{{--                                    <td class="cs-width_3 cs-semi_bold cs-focus_bg cs-primary_color cs-text_right">--}}
-{{--                                        -$20--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
+                                <tr class="cs-border_left">
+                                    <td class="cs-width_3 cs-semi_bold cs-primary_color cs-focus_bg">Discount</td>
+                                    <td class="cs-width_3 cs-semi_bold cs-focus_bg cs-primary_color cs-text_right">
+                                        {{number_format($discount)}} đ
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1485,7 +1485,7 @@
                             <tr class="cs-border_none">
                                 <td class="cs-width_3 cs-border_top_0 cs-bold cs-f16 cs-primary_color">Total Amount</td>
                                 <td class="cs-width_3 cs-border_top_0 cs-bold cs-f16 cs-primary_color cs-text_right">
-                                    {{number_format($total)}} đ
+                                    {{number_format($total-$discount)}} đ
                                 </td>
                             </tr>
                             </tbody>

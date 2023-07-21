@@ -515,17 +515,12 @@ Jan 2021</span></h5>
                         let total=0;
                         let cart=data.cart;
                         $(".cart-product-grid").html("");
-                        // console.log(cart);
                         $.each(cart, function(id, product) {
-                            console.log(id,product);
-                        // });
-                        {{--for(let {id,product} in cart){--}}
-                        {{--    console.log(product);--}}
                             total += product['price'] * product['quantity']
                             $(".cart-product-grid").append(`
                             <li class="single-cart-product cart-${id}" data-id="${id}}">
                             <div class="cart-product-info d-flex align-items-center">
-                                <div class="product-img"><img src="{{asset($product['image'])}}" alt
+                                <div class="product-img"><img src="${product['image']}" alt
                                                               class="img-fluid">
                                 </div>
                                 <div class="product-info">
@@ -540,7 +535,7 @@ Jan 2021</span></h5>
                         </li>
                             `);
                         });
-                        $(".total-cart-index").text(total.toLocaleString('it-IT', {style : 'currency', currency : 'VND'}));
+                        $(".total-cart-index").text(total.toLocaleString('vn-VN', {style : 'currency', currency : 'VND'}));
                     },
                 });
             });
