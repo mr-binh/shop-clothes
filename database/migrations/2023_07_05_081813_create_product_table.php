@@ -24,6 +24,7 @@ return new class extends Migration {
             $table->integer('sold')->default(0);
             $table->integer('category_id')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

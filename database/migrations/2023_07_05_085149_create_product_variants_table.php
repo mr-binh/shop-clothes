@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('color');
             $table->integer('quantity')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -100,7 +100,7 @@
                                             <li class="count-review">(<span>23</span> Review)</li>
                                         </ul>
                                         <h3 class="pd-title">{{$product->name}}</h3>
-                                        <h5 class="pd-price">{{$product->price}} đ</h5>
+                                        <h5 class="pd-price">{{number_format($product->price)}} đ</h5>
                                         <p class="pd-small-info">{{$product->description}}</p>
                                     </div>
                                     <div class="pd-quick-discription">

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->integer('parent_id')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Category');
+        Schema::dropIfExists('category');
     }
 };

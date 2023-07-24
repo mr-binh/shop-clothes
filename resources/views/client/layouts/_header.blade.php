@@ -28,32 +28,23 @@
                 <div class="col-xl-7 col-lg-8 col-md-8 col-sm-6 col-xs-6">
                     <nav class="main-nav">
                         <div class="inner-logo d-xl-none">
-                            <a href="index-2.html">
+                            <a href="{{route('client.home.index')}}">
                                 <img src="assets/images/logo-v2.png" alt>
                             </a>
                         </div>
                         <ul>
                             <li>
                                 <a href="{{route('client.home.index')}}">Home</a>
-{{--                                <i class="fl flaticon-plus">+</i>--}}
-{{--                                <ul class="sub-menu">--}}
-{{--                                    <li><a href="https://demo.egenslab.com/html/eg-shop-fashion/v1/index.html">EG Shop--}}
-{{--                                            Fashion 1</a></li>--}}
-{{--                                    <li><a href="index-2.html">EG Shop Fashion 2</a></li>--}}
-{{--                                    <li><a href="https://demo.egenslab.com/html/eg-shop-fashion/v3/index.html">EG Shop--}}
-{{--                                            Fashion 3</a></li>--}}
-{{--                                </ul>--}}
                             </li>
                             <li><a href="{{route('client.about.index')}}">About Us</a></li>
                             <li class="has-child-menu">
-{{--                                <a href="javascript:void(0)">Shop</a>--}}
                                 <a href="{{route('client.product.index')}}">Shop</a>
-{{--                                <i class="fl flaticon-plus">+</i>--}}
-{{--                                <ul class="sub-menu">--}}
-{{--                                    <li><a href="product.html">Shop</a></li>--}}
-{{--                                    <li><a href="product-sidebar.html">Shop Sidebar</a></li>--}}
-{{--                                    <li><a href="product-details.html">Shop Details</a></li>--}}
-{{--                                </ul>--}}
+                                <i class="fl flaticon-plus">+</i>
+                                <ul class="sub-menu">
+                                    <li><a href="{{route('client.product-category.index','men')}}">Men</a></li>
+                                    <li><a href="{{route('client.product-category.index','women')}}">Women</a></li>
+                                    <li><a href="{{route('client.product-category.index','kid')}}">Kid</a></li>
+                                </ul>
                             </li>
 
                             <li><a href="{{route('client.contact.index')}}">Contact Us</a></li>

@@ -2079,7 +2079,7 @@ li.single-cart-product .cart-product-delete-btn i:hover {
 }
 
 .pricing-range-buttom .pricing-value input {
-    margin: 0;
+    margin-right:30px;
     padding: 0;
     border: none;
     float: right;

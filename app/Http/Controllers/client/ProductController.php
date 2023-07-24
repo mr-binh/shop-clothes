@@ -14,19 +14,29 @@ class ProductController extends Controller
     {
         $keyword = $request->q;
         if ($keyword) {
+            $products = Product::query()->where('name', 'like', "%{$keyword}%")->where('status',0)->with('product_variants')->paginate(9);
+            return view('client.product.index', compact('products'));
+        }
+        $products = Product::query()->where('status',0)->with('product_variants')->paginate(9);
+        return view('client.product.index', compact('products'));
+    }
+    public function indexCategory(Request $request,$slug)
+    {
+        $keyword = $request->q;
+        if ($keyword) {
             $products = Product::query()->where('name', 'like', "%{$keyword}%")->with('product_variants')->paginate(9);
             return view('client.product.index', compact('products'));
         }
-        $products = Product::query()->with('product_variants')->paginate(9);
+        $products = Product::query()->where('category_id','=',function ($closure) use ($slug){
+            $closure->select('id')->from('category')->where('slug','=',$slug);
+        })->with('product_variants')->paginate(9);
         return view('client.product.index', compact('products'));
-//        return view('client.product.index');
     }
 
     public function detail($slug)
     {
         $product = Product::query()->where('slug', $slug)->first();
         $color = ProductVariants::query()->where('product_id', $product->id)->select('color', 'product_id')->distinct()->get();
-//        $size = ProductVariants::query()->where('product_id', $product->id)->select('size')->distinct()->get();
         return view('client.product.detail', compact('product', 'color'));
     }
 

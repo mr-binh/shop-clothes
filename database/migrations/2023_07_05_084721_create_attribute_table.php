@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('attribute_type')->notNull();
             $table->string('attribute_value')->notNull();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

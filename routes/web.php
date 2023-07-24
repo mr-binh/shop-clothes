@@ -21,22 +21,22 @@ use App\Http\Controllers\client\CouponController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+
 Route::get('/login', [AuthController::class, 'login'])->name('client.auth.login');
 Route::get('/register', [AuthController::class, 'register'])->name('client.auth.register');
 
 Route::get('/', [HomeController::class, 'index'])->name('client.home.index');
+
 Route::prefix('/product')->group(function (){
     Route::get('/', [ProductController::class, 'index'])->name('client.product.index');
     Route::get('/{slug}', [ProductController::class, 'detail'])->name('client.product.detail');
     Route::post('/search', [ProductController::class, 'search'])->name('client.product.search');
 //    Route::get('/get-size/{color}/{product_id}', [ProductController::class, 'getSize'])->name('client.product.get-size');
 });
-//Route::get('/product', [ProductController::class, 'index'])->name('client.product.index');
-//Route::get('/product/{slug}', [ProductController::class, 'detail'])->name('client.product.detail');
-//Route::get('/product/test', [ProductController::class, 'test'])->name('client.product.test');
+
+Route::prefix('product-category')->group(function () {
+    Route::get('/{slug}', [ProductController::class, 'indexCategory'])->name('client.product-category.index');
+});
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('client.dashboard.index');
@@ -59,5 +59,5 @@ Route::prefix('cart')->group(function () {
     Route::delete('/remove', [CartController::class, 'remove'])->name('client.cart.remove');
 });
 
-Route::get('/test',[DashboardController::class,'orderDetail']);
+//Route::get('/test',[DashboardController::class,'orderDetail']);
 

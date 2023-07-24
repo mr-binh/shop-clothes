@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->boolean('type')->default(1);
             $table->integer('value')->default(0);
+            $table->integer('discount_max')->default(0);
             $table->integer('quantity')->default(0);
             $table->integer('used')->default(0);
             $table->timestamp('start_date')->nullable();
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->text('description')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

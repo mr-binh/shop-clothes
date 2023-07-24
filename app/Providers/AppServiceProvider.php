@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Services\Traits\RepositorySetup;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
+    use RepositorySetup;
     /**
      * Register any application services.
      *
@@ -13,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->callApp();
     }
 
     /**
@@ -23,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(255);
     }
 }

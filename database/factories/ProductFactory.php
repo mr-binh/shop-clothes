@@ -16,7 +16,7 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $name='product'.Str::random(30);
+        $name='product'.Str::random(3);
         $slug=Str::slug($name, '-');
         return [
             'name' => $name,

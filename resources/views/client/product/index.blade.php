@@ -1,22 +1,6 @@
 @extends('client.layouts.main')
 @section('title', 'Shop')
 @section('client.content')
-{{--    <div class="breadcrumb-area">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="breadcrumb-wrap">--}}
-{{--                        <h3 class="page-title">Shop Sidebar</h3>--}}
-{{--                        <ul class="page-switcher">--}}
-{{--                            <li><a href="index-2.html">Home <i class="bi bi-chevron-right"></i></a></li>--}}
-{{--                            <li>Shop Sidebar</li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
     <div class="product-sidebar-wrapper mt-96">
         <div class="container">
             <div class="product-sorting">
@@ -76,7 +60,7 @@
                                     </h3>
                                     <div class="product-price">
 {{--                                        <del class="old-price">$302.74</del>--}}
-                                        <ins class="new-price">{{$prod->price}} đ</ins>
+                                        <ins class="new-price">{{number_format($prod->price)}} đ</ins>
                                     </div>
                                 </div>
                             </div>
@@ -85,17 +69,6 @@
 {{--                        end product card--}}
                         <div class="col-lg-12">
                             {{$products->links("client.layouts.pagination")}}
-{{--                            <div class="custom-pagination d-flex justify-content-center mt-70">--}}
-{{--                                <ul class="d-flex pagination-links">--}}
-{{--                                    <li><a href="#" class="has-arrow"><i class="flaticon-arrow-pointing-to-left"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                    <li><a href="#" class="active-page">1</a></li>--}}
-{{--                                    <li><a href="#">2</a></li>--}}
-{{--                                    <li><a href="#">3</a></li>--}}
-{{--                                    <li><a href="#" class="has-arrow"><i class="flaticon-arrow-pointing-to-right"></i></a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
                         </div>
 
                     </div>
@@ -241,12 +214,15 @@
                         </div>
                         <div class="sb-pricing-range">
                             <h5 class="sb-title">PRICE</h5>
-                            <form action="#" method="POST">
+                            <form action="{{route('client.product.index')}}" method="get">
+{{--                                @csrf--}}
                                 <div class="price-range-slider">
                                     <div id="slider-range" class="range-bar"></div>
                                     <div class="pricing-range-buttom d-flex align-items-center justify-content-between">
                                         <div class="price-filter-btn">
-                                            <button type="submit">Filter</button>
+                                            <input type="hidden" id="filter-min" name="filter-min" class="hide">
+                                            <input type="hidden" id="filter-max" name="filter-max" class="hide">
+                                            <button type="submit" id="btn-filter">Filter</button>
                                         </div>
                                         <div class="pricing-value">
                                             <span>Price : </span> <input type="text" id="amount" readonly>
