@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -15,20 +16,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $userData=[
+        $userData = [
             [
                 'name' => 'Mr Bình',
                 'email' => 'binhvt12003@gmail.com',
-                'avatar'=>'',
+                'avatar' => '',
                 'password' => bcrypt('Abcabc@123'),
-            ],
-            [
-                'name' => 'Staff',
-                'email' => 'binhvt22003@gmail.com',
-                'avatar'=>'',
-                'password' => bcrypt('Abcabc@123'),
-            ],
+            ]
         ];
-        DB::table('users')->insert($userData);
+        $user = User::create($userData);
+        $user->syncRoles('super admin');
     }
 }

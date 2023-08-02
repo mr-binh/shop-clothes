@@ -20,6 +20,7 @@ class Coupon extends Model
         'used',
         'start_date',
         'end_date',
-        'status'
+        'status',
+        'description',
     ];
 }

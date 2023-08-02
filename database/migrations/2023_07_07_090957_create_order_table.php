@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('note')->nullable();
             $table->integer('discount')->nullable();
             $table->integer('total');
-            $table->string('status');
+            $table->integer('status');
             $table->string('payment_method');
             $table->boolean('payment_status');
             $table->string('shipping_address');

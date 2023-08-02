@@ -20,7 +20,7 @@
                         <tr>
                             <td class="order-id">{{$order->order_code}}</td>
                             <td class="order-date">{{date_format($order->created_at,"d-m-Y")}}</td>
-                            <td class="order-status">{{$order->status}}</td>
+                            <td class="order-status" style="min-width: 300px">{{$status}}</td>
                             <td class="order-amount">{{number_format($order->total-$order->discount)}} đ</td>
                             {{--                            <td class="order-active"><a href=""><i class="flaticon-visibility"></i></a></td>--}}
                             <td class="order-active">
@@ -47,8 +47,6 @@
                         Loading data ...
                     </div>
                     <div class="modal-footer">
-{{--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
-{{--                        <button type="button" class="btn btn-primary">Save changes</button>--}}
                     </div>
                 </div>
             </div>
@@ -79,7 +77,8 @@
                                     <tr class="text-center">
                                           <th scope="col" class="col-1">#</th>
                                           <th scope="col">Name</th>
-                                          <th scope="col">Description</th>
+                                          <th scope="col">Color</th>
+                                          <th scope="col">Size</th>
                                           <th scope="col">Qty</th>
                                           <th scope="col">Price</th>
                                     </tr>
@@ -90,7 +89,8 @@
                                     <tr class="text-center">
                                           <th scope="col" class="col-1">#</th>
                                           <th scope="col">Name</th>
-                                          <th scope="col">Description</th>
+                                          <th scope="col">Color</th>
+                                          <th scope="col">Size</th>
                                           <th scope="col">Qty</th>
                                           <th scope="col">Price</th>
                                     </tr>
@@ -118,7 +118,8 @@
                                     <tr class="text-center">
                                           <th scope="row">${index+1}</th>
                                           <td>${value.name}</td>
-                                          <td>${value.color} | ${value.size}</td>
+                                          <td>${value.color}</td>
+                                          <td>${value.size}</td>
                                           <td>${value.quantity}</td>
                                           <td>${value.price} đ</td>
                                     </tr>

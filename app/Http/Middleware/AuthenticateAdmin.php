@@ -28,7 +28,7 @@ class AuthenticateAdmin
             throw new AuthenticationException(
                 'Unauthenticated.',
                 [],
-                auth()->check() ? route('logout') : route('login')
+                auth()->check() ? route('admin.logout') : route('admin.auth.login')
             );
         }
     }

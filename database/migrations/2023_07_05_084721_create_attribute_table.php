@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('attribute', function (Blueprint $table) {
             $table->id();
+            $table->string('attribute_name')->nullable();
             $table->string('attribute_type')->notNull();
             $table->string('attribute_value')->notNull();
+            $table->boolean('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

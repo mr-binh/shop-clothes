@@ -1,38 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\client;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use App\Models\Order;
-class DashboardController extends Controller
+
+class OrderController extends Controller
 {
-    public function index()
+    public function __construct(
+        private Order $order
+    )
     {
-        return view('client.dashboard.index');
     }
-    public function profile()
+    public function index(Request $request)
     {
-        return view('client.dashboard.profile');
+        $status = $request->type;
+        $orders = Order::where('status', $status)->paginate(10);
+        return view('admin.order.list', compact('orders', 'status'));
     }
-    public function order()
+
+    public function detail(Request $request)
     {
-        $orders = Order::query()->where('user_id', 1)->where('payment_status',0)->get();
-        $status=$orders[0]->status;
-        if ($status==1){
-            $status='Người bán đã nhận đơn hàng';
-        }elseif ($status==2){
-            $status='Đang giao hàng';
-        }elseif ($status==3){
-            $status='Đã giao hàng';
-        }elseif ($status==4){
-            $status='Đã hủy';
-        }
-        return view('client.dashboard.order', compact('orders','status'));
-    }
-    public function orderDetail(Request $request)
-    {
+//        $order = Order::find($id)->load('orderDetail');
         $orders = OrderDetail::query()->where('order_id', $request->id)->with('product_variant.product')->get();
         $productDetail = [];
         foreach ($orders as $key => $order) {
@@ -48,6 +39,15 @@ class DashboardController extends Controller
         }
         $discount=$orders[0]->order->discount;
         $total=$orders[0]->order->total;
+//        return view('admin.order.detail', compact('order'));
         return response()->json(['productDetail' => $productDetail,'discount'=>$discount,'total'=>$total]);
+    }
+    public function status(Request $request,$id){
+        $this->order::where('id', $id)->update(['status' => $request->status]);
+        return response()->json(['status' => 'success', 'message' => 'Status change successfully.']);
+    }
+    public function destroy($id){
+        $this->order::where('id', $id)->delete();
+        return response()->json(['status' => 'success', 'message' => 'Delete successfully.']);
     }
 }

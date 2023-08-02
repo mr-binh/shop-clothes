@@ -52,9 +52,4 @@ class OrderRequest extends FormRequest
             'commune.required' => 'The commune field is required.',
         ];
     }
-    public function faliedValidation(Validator $validator)
-    {
-        $errors = $validator->errors();
-        return response()->json(['status' => 'error', 'errors' => $errors]);
-    }
 }

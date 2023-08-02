@@ -19,7 +19,6 @@ class AuthController extends Controller
         return view('admin.auth.login');
     }
 
-
     public function adminCheck(Request $request)
     {
         $user = User::whereEmail($request->email)->first();

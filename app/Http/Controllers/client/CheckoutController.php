@@ -65,7 +65,7 @@ class CheckoutController extends Controller
             $order->note = $note;
             $order->discount = $discount;
             $order->total = $total;
-            $order->status = "Chưa thanh toán";
+            $order->status = 0;
             $order->payment_method = "vnpay";
             $order->payment_status = 1;
             $order->shipping_address = $address;
@@ -179,7 +179,7 @@ class CheckoutController extends Controller
 //                DB::beginTransaction();
 //                try {
                     $this->order::where('order_code', $orderCode)->update([
-                        'status' => 'Người bán đã xác nhận đơn hàng',
+                        'status' => 1,
                         'payment_status' => 0,
                     ]);
 

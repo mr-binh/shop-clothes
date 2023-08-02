@@ -36,22 +36,23 @@ class CouponController extends Controller
         $discount = 0;
         if ($coupon['type'] == 1) {
             $discount = $total * $coupon['value'] / 100;
-            $total = $total - $discount;
-            if ($discount > $coupon['discount_max']) {
+            $totalTm = $total - $discount;
+            if ($discount >= $coupon['discount_max']) {
                 $discount = $coupon['discount_max'];
+                $totalTm = $total - $discount;
             }
         } else {
             $discount = $coupon['value'];
 //            if ($discount > $coupon['discount_max']) {
 //                $discount = $coupon['discount_max'];
 //            }
-            $total = $total - $discount;
+            $totalTm = $total - $discount;
         }
-        $info = [
-            'code' => $coupon['code'],
-            'discount' => $discount,
-        ];
-        Session::put('coupon', $info);
-        return response()->json(['status'=>'success','message' => 'Áp dụng mã giảm giá thành công', 'discount' => $discount, 'total' => $total]);
+//        $info = [
+//            'code' => $coupon['code'],
+//            'discount' => $discount,
+//        ];
+//        Session::put('coupon', $info);
+        return response()->json(['status'=>'success','message' => 'Áp dụng mã giảm giá thành công', 'discount' => $discount, 'total' => $totalTm]);
     }
 }

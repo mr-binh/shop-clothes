@@ -25,7 +25,7 @@ class Order extends Model
         'payment_status',
         'shipping_address',
     ];
-    public function order_detail()
+    public function orderDetail()
     {
         return $this->hasMany(OrderDetail::class);
     }

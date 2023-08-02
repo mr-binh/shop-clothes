@@ -36,6 +36,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = $this->category->all();
+
         return view('admin.product.add', compact('categories'));
     }
 
@@ -98,16 +99,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = $this->product::findOrFail($id);
+        $file = $product->image;
         $product->delete();
+        Storage::delete('/public/'.$file);
         return redirect()->route('admin.product.show')->with('success', 'Product deleted successfully.');
     }
-
-    public function detail($id)
-    {
-        $product = $this->productVariants::where('product_id', $id)->all();
-        return view('admin.product.detail', compact('product'));
-    }
-
     public function un_hot($id)
     {
         $this->product::where('id', $id)->update(['hot' => 1]);
@@ -131,5 +127,46 @@ class ProductController extends Controller
         $this->product::where('id', $id)->update(['status' => 0]);
         return response()->json(['status' => 'success', 'message' => 'Status change successfully.']);
     }
+
+//product variant
+    public function detail($id)
+    {
+        $productvariant = $this->productVariants::where('product_id', $id)->paginate(10);
+        $productId = $id;
+        $productName= $this->product::query()->select('name')->where('id', $id)->first();
+        return view('admin.productvariant.list', compact('productvariant','productId','productName'));
+    }
+    public function detailCreate($id){
+        $productId = $id;
+        return view('admin.productvariant.add', compact('productId'));
+    }
+    public function detailStore(Request $request,$id){
+        $productvariant = $this->productVariants::create([
+            'product_id' => $id,
+            'color' => $request->color,
+            'size' => $request->size,
+            'quantity' => $request->quantity,
+        ]);
+        return redirect()->route('admin.product.detail.show', $productvariant->product_id)->with('success', 'Product variant created successfully.');
+    }
+    public function detailEdit($id){
+        $productvariant = $this->productVariants::findOrFail($id);
+        return view('admin.productvariant.edit', compact('productvariant'));
+    }
+    public function detailUpdate($id){
+        $productvariant = $this->productVariants::findOrFail($id);
+        $productvariant->update([
+            'color' => request()->color,
+            'size' => request()->size,
+            'quantity' => request()->quantity,
+        ]);
+        return redirect()->route('admin.product.detail.show', $productvariant->product_id)->with('success', 'Product variant updated successfully.');
+    }
+    public function detailDestroy($id){
+        $productvariant = $this->productVariants::findOrFail($id);
+        $productvariant->delete();
+        return redirect()->route('admin.product.detail.show', $productvariant->product_id)->with('success', 'Product variant deleted successfully.');
+    }
+
 
 }
